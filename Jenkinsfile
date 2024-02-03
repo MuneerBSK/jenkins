@@ -15,7 +15,7 @@ pipeline {
 
         stage ('stagename -3') {
             steps {
-                sh "I am executing stage 2"
+                sh "I am executing stage 3"
             }
         }
     }
