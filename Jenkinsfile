@@ -1,10 +1,21 @@
 pipeline {
-    agent any
-
+    agent any 
     stages {
-        stage('Hello') {
+        stage ('stagename -1') {
             steps {
-                echo 'Hello World and welcome to DevOps learning'
+                sh "echo this is my first stage in the jenkins pipeline"
+            }
+        }
+
+        stage ('stagename -2') {
+            steps {
+                sh "I am executing stage 2"
+            }
+        }
+
+        stage ('stagename -3') {
+            steps {
+                sh "I am executing stage 2"
             }
         }
     }
