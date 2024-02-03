@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('stage name -1') {
             steps {
-                sh "echo this is my first stage in the jenkins pipeline"
+                sh "echo I am using pipeline syntax"
             }
         }
 
