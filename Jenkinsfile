@@ -20,7 +20,7 @@ pipeline {
         stage('stage name -1') {
             steps {
                 sh "echo 'I am using pipeline syntax'"
-                // Add more steps for stage name -1 if needed
+                
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
                 sh 'env' // Command which prints existing environment variables
-                // Add more steps for stage name -2 if needed
+                
             }
         }
 
@@ -38,7 +38,7 @@ pipeline {
             }
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
-                // Add more steps for stage name -3 if needed
+                
             }
         }
     }
