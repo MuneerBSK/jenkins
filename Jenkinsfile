@@ -21,7 +21,11 @@ pipeline {
 
         stage ('stage name -3') {
             steps {
-                sh '''
+                    environment {
+                        ENV_URL = "pipeline.learning.com"
+                    }
+            sh '''
+
                 echo I am using pipeline syntax
                 echo demo to show multiple lines
                 echo printing multiple lines with a single usage of sh command
