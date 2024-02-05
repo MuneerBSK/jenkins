@@ -20,10 +20,11 @@ pipeline {
         }
 
         stage ('stage name -3') {
+            environment {
+                        ENV_URL = "stage.learning.com"
+                }
             steps {
-                    environment {
-                        ENV_URL = "pipeline.learning.com"
-                    }
+                    
             sh '''
 
                 echo I am using pipeline syntax
