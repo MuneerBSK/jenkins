@@ -19,12 +19,12 @@ pipeline {
     tools {
         maven 'apache-maven-3.0.1' 
     }
-    
+
     stages {
 
         stage('Testing mvn commands') {
             steps {
-                sh "mvn clean"
+                sh "mvn --version"
             }
         }
 
