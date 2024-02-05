@@ -30,6 +30,7 @@ pipeline {
                 echo demo to show multiple lines
                 echo printing multiple lines with a single usage of sh command
                 echo Printing the environment variable ${ENV_URL}
+                
                 '''
             }
         }
