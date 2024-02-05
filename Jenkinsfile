@@ -7,30 +7,28 @@ pipeline {
     }
 
     stages {
-
-        stage ('stage name -1') {
+        stage('stage name -1') {
             steps {
-                sh "echo I am using pipeline syntax"
+                sh "echo 'I am using pipeline syntax'"
+                // Add more steps for stage name -1 if needed
             }
         }
 
-        stage ('stage name -2') {
+        stage('stage name -2') {
             steps {
-                sh "echo Printing the environment variable ${ENV_URL}"
-                sh "env" //cmd which prints existing env variables
+                sh "echo 'Printing the environment variable ${ENV_URL}'"
+                sh "env" // Command which prints existing environment variables
+                // Add more steps for stage name -2 if needed
             }
         }
 
-        stage ('stage name -3') {
+        stage('stage name -3') {
             environment {
-                        ENV_URL = "stage.learning.com" // declaring pipeline at stage level
-                }
+                ENV_URL = "stage.learning.com" // Declaring pipeline at stage level
+            }
             steps {
-  
-            sh '''
-                echo Printing the environment variable ${ENV_URL}
-                
-                '''
+                sh "echo 'Printing the environment variable ${ENV_URL}'"
+                // Add more steps for stage name -3 if needed
             }
         }
     }
