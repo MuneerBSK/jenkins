@@ -36,6 +36,7 @@ pipeline {
         }
 
         stage('stage name -2') {
+            when {branch 'dev'}
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
                 sh 'env' // Command which prints existing environment variables
@@ -44,7 +45,6 @@ pipeline {
         }
 
         stage('Final stage needs attention') {
-            when {branch 'dev'}
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
