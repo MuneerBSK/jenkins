@@ -3,9 +3,11 @@ pipeline {
 
     environment {
         ENV_URL = "pipeline.learning.com"
+        SSH_CREDENTIALS = credentials{'SSH_CRED'}
     }
 
     stages {
+        
         stage ('stage name -1') {
             steps {
                 sh "echo I am using pipeline syntax"
