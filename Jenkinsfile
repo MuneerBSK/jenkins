@@ -6,16 +6,6 @@ pipeline {
         SSH_CREDENTIALS = credentials('SSH_CRED')
     }
 
-z
-
-    // parameters {
-    //     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-    //     text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-    //     booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-    //     choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-    //     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    // }
-    
     tools {
         maven 'maven-3.9.6' 
     }
@@ -27,26 +17,23 @@ z
                 stage('One') {
                     steps {
                         sh "echo STAGE ONE"
-                        sh "sleep 100"
+                        sh "sleep 5"
                     }
                 }
                 stage('Two') {
                     steps {
                         sh "echo STAGE TWO"
-                        sh "sleep 100"
+                        sh "sleep 5"
                     }
                 }
                 stage('Three') {
                     steps {
                         sh "echo STAGE THREE"
-                        sh "sleep 100"
+                        sh "sleep 5"
                     }
                 }
             }
         }
-
-
-    stages {
 
         stage('Testing mvn commands') {
             steps {
@@ -57,16 +44,16 @@ z
         stage('stage name -1') {
             steps {
                 sh "echo 'I am using pipeline syntax'"
-                
             }
         }
 
         stage('stage name -2') {
-            when {branch 'dev'}
+            when {
+                branch 'dev'
+            }
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
                 sh 'env' // Command which prints existing environment variables
-                
             }
         }
 
@@ -84,7 +71,6 @@ z
             }
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
-                
             }
         }
     }
