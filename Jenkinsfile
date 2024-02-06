@@ -22,6 +22,32 @@ z
 
     stages {
 
+        stage('Example on parallel stages') {
+            parallel {
+                stage('One') {
+                    steps {
+                        sh "echo STAGE ONE"
+                        sh "sleep 100"
+                    }
+                }
+                stage('Two') {
+                    steps {
+                        sh "echo STAGE TWO"
+                        sh "sleep 100"
+                    }
+                }
+                stage('Three') {
+                    steps {
+                        sh "echo STAGE THREE"
+                        sh "sleep 100"
+                    }
+                }
+            }
+        }
+
+
+    stages {
+
         stage('Testing mvn commands') {
             steps {
                 sh "mvn --version"
