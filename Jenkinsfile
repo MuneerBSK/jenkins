@@ -2,39 +2,64 @@ pipeline {
     agent any 
 
     environment {
-        ENV_URL = "pipeline.learning.com"
+        ENV_URL = 'pipeline.learning.com'
         SSH_CREDENTIALS = credentials('SSH_CRED')
     }
 
+z
+
+    // parameters {
+    //     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    //     text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+    //     booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+    //     choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+    //     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    // }
+    
+    tools {
+        maven 'maven-3.9.6' 
+    }
+
     stages {
+
+        stage('Testing mvn commands') {
+            steps {
+                sh "mvn --version"
+            }
+        }
+
         stage('stage name -1') {
             steps {
                 sh "echo 'I am using pipeline syntax'"
-                // Add more steps for stage name -1 if needed
+                
             }
         }
 
         stage('stage name -2') {
+            when {branch 'dev'}
             steps {
                 sh "echo 'Printing the environment variable ${ENV_URL}'"
-                sh "env" // Command which prints existing environment variables
-                // Add more steps for stage name -2 if needed
+                sh 'env' // Command which prints existing environment variables
+                
             }
         }
 
-        stage('Stage Name - 3') {
+        stage('Final stage needs attention') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             environment {
-                ENV_URL = "stage.learning.com" // Declaring pipeline at stage level
+                ENV_URL = 'stage.learning.com' // Declaring pipeline at stage level
             }
             steps {
-                sh '''
-                    echo 'I am using Pipeline Syntax Help'
-                    echo 'demo to show multiple lines'
-                    echo 'Printing multiple lines with a single usage of sh command'
-                    echo 'Printing the environment variable ${ENV_URL}'
-                '''
+                sh "echo 'Printing the environment variable ${ENV_URL}'"
+                
             }
         }
-
     }
 }
