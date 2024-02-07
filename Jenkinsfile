@@ -16,7 +16,7 @@ pipeline {
             parallel {
                 stage('One') {
                     steps {
-                        sh "ifconfig"
+                        sh "cat /home/centos/file.txt"
                         sh "echo STAGE ONE"
                         sh "sleep 5"
                     }
