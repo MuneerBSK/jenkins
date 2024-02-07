@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent { label 'ws' }
 
     environment {
         ENV_URL = 'pipeline.learning.com'
