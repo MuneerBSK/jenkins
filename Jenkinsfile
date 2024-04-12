@@ -1,3 +1,5 @@
+// this basic demo of jenkins
+
 pipeline {
     agent { label 'ws' }
 
