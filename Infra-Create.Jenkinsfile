@@ -3,9 +3,6 @@ pipeline {
     parameters {
         choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Select The Environment')
     }
-    options {
-        ansiColor('xterm')    // Add's color to the output : Ensure you install AnsiColor Plugin.
-    }
     stages {
         stage('Terraform Create Network') {
             steps {
